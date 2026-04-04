@@ -1,0 +1,75 @@
+% !TeX program = xelatex
+
+\documentclass[14pt]{extarticle}
+\usepackage[drawstamps=true]{bstunote}
+\usepackage[a4paper, left=23mm, right=9mm, top=9mm, bottom=24mm]{geometry}
+\usepackage[english, russian]{babel}
+
+% Включаем гиперссылки в оглавлении
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=green!70!black,hypertexnames=false]{hyperref}
+
+\usepackage{lipsum}
+
+\StampAuthor{Иванов И.И.}{3.06.26\,}
+\StampCheckBy{Осипов О.В.}{3.06.26\,}
+\StampNormControl{Бондаренко Т.В.}{11.06.26\,}
+\StampApprovedBy{Поляков В.М.}{25.06.26\,}
+\StampWorkTheme{Разработка программного обеспечения для прогнозирования погоды на основе анализа спутниковых снимков с использованием методов машинного обучения}
+\StampOrganization{БГТУ~им.~В.Г.~Шухова, \makebox{ПВ-222}}
+
+% Шрифт в рамках
+\usepackage{fontspec}
+\newfontfamily\GOSTFontFamily[
+FakeSlant=0.3 	% Используем искусственный наклон
+]{GOST type A}  % Название шрифта, который будет в рамках
+\StampFont{\GOSTFontFamily}
+
+\setmainfont{PT Astra Serif} 	 % Шрифт с засечками
+\setsansfont{PT Astra Sans}		 % Шрифт без засечек
+\setmonofont[Scale=0.9]{PT Mono} % Моноширинный шрифт
+
+\begin{document}
+
+\initpagenumbering
+
+\section*{OПРЕДЕЛЕНИЯ, СOКРAЩЕНИЯ И OБOЗНAЧЕНИЯ}
+\par РФ -- Российская Федерация.
+\par СВО -- специальная военная операция.
+\par ВУЗ -- высшее учебное заведение.
+\par API (Application Programming Interface) -- программный интерфейс, обеспечивающий взаимодействие между компонентами программного обеспечения.
+\par RGB (red, green, blue) -- цветовой формат машинной графики, основанный на смешении компонентов красного, зелёного и синего цветов.
+\par WWW (World Wide Web) -- всемирная паутина, система взаимосвязанных гипертекстовых документов.
+
+% Содержание
+\renewcommand{\contentsname}{\rucontentsname}
+\tableofcontents
+
+\section*[ВВЕДЕНИЕ]{ВВЕДЕНИЕ}
+\lipsum[1-10]
+\section{АНАЛИЗ СОСТОЯНИЯ ИССЛЕДОВАНИЙ И РАЗРАБОТОК В ОБЛАСТИ ПРОГНОЗИРОВАНИЯ ПОГОДЫ}
+\lipsum[11-20]
+\section{РАЗРАБОТКА АРХИТЕКТУРЫ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ДЛЯ ПРОГНОЗИРОВАНИЯ ПОГОДЫ}
+\lipsum[21-30]
+\section{РАЗРАБОТКА АЛГОРИТМОВ И ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ДЛЯ ПРОГНОЗИРОВАНИЯ ПОГОДЫ}
+\lipsum[31-40]
+\section*[ЗАКЛЮЧЕНИЕ]{ЗАКЛЮЧЕНИЕ}
+\lipsum[41-50]
+
+\newpage
+% Оформление списка литературы
+\renewcommand{\refname}{\rubibliographyname} % Заголовок
+\phantomsection
+\addcontentsline{toc}{section}{\rubibliographyname}% Добавим список литературы в оглавление
+\begin{thebibliography}{99}
+	\bibitem{gost19201}
+	\textbf{ГОСТ 19.201-78.} Техническое задание. Требования к содержанию и оформлению.  -- Введ. 1980-01-01. -- Москва : Стандартинформ, 2010. --~4~с.
+\end{thebibliography}
+
+% ПРИЛОЖЕНИЯ
+\appendix
+
+\section{Блок-схемы основных алгоритмов прогнозирования погоды}
+\lipsum[1-10]
+\section{Листинги разработанных подпрограмм для прогнозирования погоды}
+\lipsum[11-20]
+\end{document}
