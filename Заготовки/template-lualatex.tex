@@ -1,26 +1,65 @@
-% !TeX program = pdflatex
+% !TeX program = lualatex
 
 \documentclass[14pt]{extarticle}
 \usepackage[drawstamps=true]{bstunote}
 \usepackage[a4paper, left=23mm, right=9mm, top=9mm, bottom=24mm]{geometry}
 \usepackage[english, russian]{babel}
 
-\usepackage[T2A]{fontenc}	% Используем кириллицу в PDFLaTeX
-\usepackage[utf8]{inputenc} % Кодировка исходного файла в PDFLaTeX - UTF-8
-
 % Включаем гиперссылки в оглавлении
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=green!70!black,hypertexnames=false]{hyperref}
 \usepackage{lipsum}
 
+\usepackage{fontspec}
+
+\defaultfontfeatures{Mapping=tex-text}
+
+% Шрифт в рамках
+\newfontface{\GOSTFontFamily}{GOST-type-A} [ % Название шрифта, который будет в рамках
+Path = ./fonts/,
+Extension = .ttf,
+FakeSlant=0.3 	% Используем искусственный наклон
+]
+
+% Шрифт с засечками
+\setmainfont{PT-Astra-Serif}[
+Path = ./fonts/PT-Astra-Serif/,
+Extension = .ttf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic]
+
+% Шрифт без засечек
+\setsansfont{PT-Astra-Sans}[
+Path = ./fonts/PT-Astra-Sans/,
+Extension = .ttf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic]
+
+% Моноширинный шрифт
+\setmonofont{PT-Mono}[
+Path = ./fonts/PT-Mono/,
+Extension = .ttf,
+BoldFont = *-Bold,
+UprightFont = *-Regular,
+Scale=0.9
+]
+
+% В LuaLaTeX включаем продвинутую микротипографику 
+\usepackage[protrusion=true, expansion=true]{microtype}
+
 \StampAuthor{Иванов И.И.}{3.06.26\,}
 \StampCheckBy{Осипов О.В.}{3.06.26\,}
-\StampNormControl{\fontsize{9.5pt}{6pt}\selectfont Бондаренко\kern0.1emТ\kern-0.2em.В\kern-0.1em.}{11.06.26\,}
+\StampNormControl{Бондаренко Т.В.}{11.06.26\,}
 \StampApprovedBy{Поляков В.М.}{25.06.26\,}
-\StampWorkTheme{\fontsize{11pt}{10pt}\selectfont Разработка программного обеспечения для прог\-нозирования погоды на основе анализа спутниковых снимков с ис\-пользованием методов машинного обучения}
+\StampWorkTheme{Разработка программного обеспечения для прогнозирования погоды на основе анализа спутниковых снимков с использованием методов машинного обучения}
 \StampOrganization{БГТУ~им.~В.Г.~Шухова, \makebox{ПВ-222}}
-\StampFont{\fontencoding{T2A}\fontfamily{cmss}\fontshape{it}\selectfont}
+\StampFont{\GOSTFontFamily}
 
 \begin{document}
+
 \newgeometry{left=3cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
 \begin{titlepage}
 	\centering % Горизонтальное центрирование
